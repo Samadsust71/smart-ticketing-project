@@ -4,6 +4,7 @@ const totalSeatEl = document.getElementById('total-seat');
 const selectedSeatEl = document.getElementById('selected-seat');
 const totalPriceEl = document.getElementById('total-price-span');
 const couponInput =  document.getElementById('coupon-input');
+const grandTotalPriceEl = document.getElementById('grand-price-span');
 
 let totalSelectedSeat =[];
 function showAvailableSeat(event) {
@@ -31,6 +32,7 @@ function showAvailableSeat(event) {
         `;
         document.getElementById('booked-seat-list').appendChild(bookedSeatContainer);
         totalPriceEl.innerText = (TICKET_PRICE * totalSelectedSeat.length).toFixed(2);
+        grandTotalPriceEl.innerText = (TICKET_PRICE * totalSelectedSeat.length).toFixed(2);
 
         if (totalSelectedSeat.length > 0) {
             document.getElementById('passenger-name-input').removeAttribute('disabled');
@@ -51,7 +53,7 @@ function showAvailableSeat(event) {
 document.getElementById('coupon-input-btn').addEventListener('click',function(){
       const couponInputValue = couponInput.value;
       const couponSaveEl = document.getElementById('coupon-save-price-span');
-      const grandTotalPriceEl = document.getElementById('grand-price-span');
+     
       if (couponInputValue !== 'NEW15' && couponInputValue !== 'Couple 20') {
         return alert('Invalid coupon')
       }
